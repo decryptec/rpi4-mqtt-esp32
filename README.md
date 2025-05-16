@@ -25,3 +25,6 @@ This project demonstrates controlling a fan with an ESP32 using the ESP-IDF fram
 *   Yocto build environment (Poky) properly set up.
 *   ESP-IDF environment properly set up (including toolchain)
 *   Python 3 + Flask, Paho MQTT
+
+## Run program
+'flask --app app run --debug --host=0.0.0.0'

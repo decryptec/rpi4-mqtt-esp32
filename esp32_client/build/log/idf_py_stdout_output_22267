@@ -1,0 +1,486 @@
+[1/12] Performing build step for 'bootloader'
+[1/1] cd /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/build/bootloader/esp-idf/esptool_py && /nix/store/z8b4rbi73k58l4191bwn4r8plzb3idig-python3-3.12.8-env/bin/python3.12 /nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/build/bootloader/bootloader.bin
+Bootloader binary size 0x6580 bytes. 0xa80 bytes (9%) free.
+[2/12] No install step for 'bootloader'
+[3/12] Linking C static library esp-idf/wifi_provisioning/libwifi_provisioning.a
+[4/12] Completed 'bootloader'
+[5/12] Linking C static library esp-idf/spiffs/libspiffs.a
+[6/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/esp32_client.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/esp32_client.c.obj 
+/nix/store/y90z6gpcvp1c1w6mmhqpib7zan539kic-xtensa-esp-elf-esp-idf-v5.4.1/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.4.1\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/build/config -I/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/newlib/platform_include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/config/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/config/include/freertos -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/config/xtensa/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/FreeRTOS-Kernel/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/freertos/esp_additions/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/include/soc -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/include/soc/esp32 -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/dma/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/ldo/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/debug_probe/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/port/esp32/. -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hw_support/port/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/heap/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/heap/tlsf -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/soc/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/soc/esp32 -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/soc/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/soc/esp32/register -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/hal/platform_port/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/hal/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/hal/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_rom/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_rom/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_rom/esp32/include/esp32 -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_rom/esp32 -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_common/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_system/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_system/port/soc -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_system/port/include/private -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/xtensa/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/xtensa/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/xtensa/deprecated_include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/include/apps -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/include/apps/sntp -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/lwip/src/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/port/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/port/freertos/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/port/esp32xx/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/port/esp32xx/include/arch -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/lwip/port/esp32xx/include/sys -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_gpio/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_pm/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/port/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/mbedtls/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/mbedtls/library -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/esp_crt_bundle/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/mbedtls/3rdparty/everest/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/mbedtls/3rdparty/p256-m -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_app_format/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_bootloader_format/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/app_update/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/bootloader_support/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/bootloader_support/bootloader_flash/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_partition/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/efuse/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/efuse/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_mm/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/spi_flash/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_security/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/pthread/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_timer/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_gptimer/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_ringbuf/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_uart/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/vfs/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/app_trace/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_event/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/nvs_flash/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_pcnt/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_spi/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_mcpwm/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_ana_cmpr/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_i2s/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/sdmmc/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_sdmmc/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_sdspi/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_sdio/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_dac/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_rmt/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_tsens/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_sdm/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_i2c/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_ledc/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_parlio/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_usb_serial_jtag/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/driver/deprecated -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/driver/i2c/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/driver/touch_sensor/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/driver/twai/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/driver/touch_sensor/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_phy/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_phy/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_vfs_console/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_netif/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/wpa_supplicant/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/wpa_supplicant/port/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/wpa_supplicant/esp_supplicant/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_coex/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_wifi/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_wifi/include/local -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_wifi/wifi_apps/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_wifi/wifi_apps/nan_app/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/unity/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/unity/unity/src -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/cmock/CMock/src -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/console -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/http_parser -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp-tls -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp-tls/esp-tls-crypto -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_adc/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_adc/interface -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_adc/esp32/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_adc/deprecated/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_isp/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_cam/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_cam/interface -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_jpeg/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_driver_ppa/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_eth/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_gdbstub/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_hid/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/tcp_transport/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_http_client/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_http_server/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_https_ota/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_https_server/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_psram/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_lcd/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_lcd/interface -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/protobuf-c/protobuf-c -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/protocomm/include/common -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/protocomm/include/security -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/protocomm/include/transports -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/protocomm/include/crypto/srp6a -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/protocomm/proto-c -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/esp_local_ctrl/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/espcoredump/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/espcoredump/include/port/xtensa -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/wear_levelling/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/fatfs/diskio -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/fatfs/src -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/fatfs/vfs -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/idf_test/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/idf_test/include/esp32 -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/ieee802154/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/json/cJSON -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mqtt/esp-mqtt/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/nvs_sec_provider/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/perfmon/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/rt/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/spiffs/include -I/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/wifi_provisioning/include -mlongcalls -Wno-frame-address  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client=. -fmacro-prefix-map=/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/esp32_client.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/esp32_client.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/esp32_client.c.obj -c /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c
+In file included from /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:26:
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c: In function 'wifi_init_sta':
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:80:21: note: in expansion of macro 'WIFI_SSID'
+   80 |             .ssid = WIFI_SSID,
+      |                     ^~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:182:137: note: in expansion of macro 'WIFI_SSID'
+  182 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:106:9: note: in expansion of macro 'ESP_LOGI'
+  106 |         ESP_LOGI(TAG, "connected to ap SSID:%s password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:183:137: note: in expansion of macro 'WIFI_SSID'
+  183 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:106:9: note: in expansion of macro 'ESP_LOGI'
+  106 |         ESP_LOGI(TAG, "connected to ap SSID:%s password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:184:137: note: in expansion of macro 'WIFI_SSID'
+  184 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:106:9: note: in expansion of macro 'ESP_LOGI'
+  106 |         ESP_LOGI(TAG, "connected to ap SSID:%s password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:185:137: note: in expansion of macro 'WIFI_SSID'
+  185 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:106:9: note: in expansion of macro 'ESP_LOGI'
+  106 |         ESP_LOGI(TAG, "connected to ap SSID:%s password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:186:137: note: in expansion of macro 'WIFI_SSID'
+  186 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:106:9: note: in expansion of macro 'ESP_LOGI'
+  106 |         ESP_LOGI(TAG, "connected to ap SSID:%s password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:182:137: note: in expansion of macro 'WIFI_SSID'
+  182 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:108:9: note: in expansion of macro 'ESP_LOGI'
+  108 |         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:183:137: note: in expansion of macro 'WIFI_SSID'
+  183 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:108:9: note: in expansion of macro 'ESP_LOGI'
+  108 |         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:184:137: note: in expansion of macro 'WIFI_SSID'
+  184 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:108:9: note: in expansion of macro 'ESP_LOGI'
+  108 |         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:185:137: note: in expansion of macro 'WIFI_SSID'
+  185 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:108:9: note: in expansion of macro 'ESP_LOGI'
+  108 |         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/wifi_credentials.h:4:19: error: expected expression before '=' token
+    4 | #define WIFI_SSID = "ComChien"
+      |                   ^
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:186:137: note: in expansion of macro 'WIFI_SSID'
+  186 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:108:9: note: in expansion of macro 'ESP_LOGI'
+  108 |         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s", WIFI_SSID, WIFI_PASSWORD);
+      |         ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c: In function 'mqtt_event_handler_cb':
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:156:22: error: implicit declaration of function 'esp_mqtt_client_subscribte'; did you mean 'esp_mqtt_client_subscribe'? [-Wimplicit-function-declaration]
+  156 |             msg_id = esp_mqtt_client_subscribte(client, status_t, 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                      esp_mqtt_client_subscribe
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:160:22: error: too few arguments to function 'esp_mqtt_client_publish'
+  160 |             msg_id = esp_mqtt_client_publish(client, temp_t, "Hello ESP32! TEMP", 0, 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:21:
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mqtt/esp-mqtt/include/mqtt_client.h:555:5: note: declared here
+  555 | int esp_mqtt_client_publish(esp_mqtt_client_handle_t client, const char *topic,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:15,
+                 from /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:20:
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c: In function 'mqtt_event_handler':
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:98:31: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+   98 | #define LOG_COLOR_E           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_E'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:182:86: note: in expansion of macro 'LOG_FORMAT'
+  182 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:115:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  115 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:198:5: note: in expansion of macro 'ESP_LOGD'
+  198 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:99:31: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+   99 | #define LOG_COLOR_W           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_W'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:183:86: note: in expansion of macro 'LOG_FORMAT'
+  183 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:115:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  115 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:198:5: note: in expansion of macro 'ESP_LOGD'
+  198 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:101:31: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  101 | #define LOG_COLOR_D           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_D'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:184:86: note: in expansion of macro 'LOG_FORMAT'
+  184 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:115:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  115 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:198:5: note: in expansion of macro 'ESP_LOGD'
+  198 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:102:31: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  102 | #define LOG_COLOR_V           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_V'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:185:86: note: in expansion of macro 'LOG_FORMAT'
+  185 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:115:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  115 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:198:5: note: in expansion of macro 'ESP_LOGD'
+  198 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:100:31: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  100 | #define LOG_COLOR_I           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_I'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:186:86: note: in expansion of macro 'LOG_FORMAT'
+  186 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:115:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  115 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:198:5: note: in expansion of macro 'ESP_LOGD'
+  198 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
+      |     ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c: In function 'mqtt_app_start':
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:207:10: error: 'esp_mqtt_client_config_t' has no member named 'uri'
+  207 |         .uri = MQTT_BROKER_URI,
+      |          ^~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:208:10: error: 'esp_mqtt_client_config_t' has no member named 'client_id'
+  208 |         .client_id = MQTT_CLIENT_ID, // Optional
+      |          ^~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:206:41: error: missing braces around initializer [-Werror=missing-braces]
+  206 |     esp_mqtt_client_config_t mqtt_cfg = {
+      |                                         ^
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c: In function 'app_main':
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:98:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   98 | #define LOG_COLOR_E           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_E'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:182:86: note: in expansion of macro 'LOG_FORMAT'
+  182 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:221:5: note: in expansion of macro 'ESP_LOGI'
+  221 |     ESP_LOGI(TAG, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:99:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   99 | #define LOG_COLOR_W           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_W'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:183:86: note: in expansion of macro 'LOG_FORMAT'
+  183 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:221:5: note: in expansion of macro 'ESP_LOGI'
+  221 |     ESP_LOGI(TAG, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:101:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  101 | #define LOG_COLOR_D           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_D'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:184:86: note: in expansion of macro 'LOG_FORMAT'
+  184 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:221:5: note: in expansion of macro 'ESP_LOGI'
+  221 |     ESP_LOGI(TAG, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:102:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  102 | #define LOG_COLOR_V           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_V'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:185:86: note: in expansion of macro 'LOG_FORMAT'
+  185 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:221:5: note: in expansion of macro 'ESP_LOGI'
+  221 |     ESP_LOGI(TAG, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
+      |     ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:100:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  100 | #define LOG_COLOR_I           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_I'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:186:86: note: in expansion of macro 'LOG_FORMAT'
+  186 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:221:5: note: in expansion of macro 'ESP_LOGI'
+  221 |     ESP_LOGI(TAG, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
+      |     ^~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:268:10: error: 'ledc_channel_config_t' has no member named 'intr_enable'
+  268 |         .intr_enable    = false,
+      |          ^~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:270:27: warning: initialized field overwritten [-Woverride-init]
+  270 |         .duty           = 0,
+      |                           ^
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:270:27: note: (near initialization for 'ledc_channel.duty')
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:290:13: error: implicit declaration of function 'isnan' [-Wimplicit-function-declaration]
+  290 |         if (isnan(humidity) || isnan(temperature)) {
+      |             ^~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:27:1: note: include '<math.h>' or provide a declaration of 'isnan'
+   26 | #include "wifi_credentials.h"
+  +++ |+#include <math.h>
+   27 | // Define WiFi credentials and MQTT broker details
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:300:26: error: too few arguments to function 'esp_mqtt_client_publish'
+  300 |             int msg_id = esp_mqtt_client_publish(client, temp_t, data_str, 0, 1); // QoS 1
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/mqtt/esp-mqtt/include/mqtt_client.h:555:5: note: declared here
+  555 | int esp_mqtt_client_publish(esp_mqtt_client_handle_t client, const char *topic,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:98:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   98 | #define LOG_COLOR_E           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_E'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:182:86: note: in expansion of macro 'LOG_FORMAT'
+  182 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:317:9: note: in expansion of macro 'ESP_LOGI'
+  317 |         ESP_LOGI(TAG, "Fan duty cycle set to: %d", duty_cycle);
+      |         ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:99:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   99 | #define LOG_COLOR_W           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_W'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:183:86: note: in expansion of macro 'LOG_FORMAT'
+  183 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:317:9: note: in expansion of macro 'ESP_LOGI'
+  317 |         ESP_LOGI(TAG, "Fan duty cycle set to: %d", duty_cycle);
+      |         ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:101:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  101 | #define LOG_COLOR_D           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_D'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:184:86: note: in expansion of macro 'LOG_FORMAT'
+  184 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:317:9: note: in expansion of macro 'ESP_LOGI'
+  317 |         ESP_LOGI(TAG, "Fan duty cycle set to: %d", duty_cycle);
+      |         ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:102:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  102 | #define LOG_COLOR_V           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_V'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:185:86: note: in expansion of macro 'LOG_FORMAT'
+  185 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:317:9: note: in expansion of macro 'ESP_LOGI'
+  317 |         ESP_LOGI(TAG, "Fan duty cycle set to: %d", duty_cycle);
+      |         ^~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log_color.h:100:31: error: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  100 | #define LOG_COLOR_I           ""
+      |                               ^~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_I'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:186:86: note: in expansion of macro 'LOG_FORMAT'
+  186 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+/nix/store/cx2807958xk7lmkxjg6r96byxcvkxb1i-esp-idf-v5.4.1/components/log/include/esp_log.h:114:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  114 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/main/esp32_client.c:317:9: note: in expansion of macro 'ESP_LOGI'
+  317 |         ESP_LOGI(TAG, "Fan duty cycle set to: %d", duty_cycle);
+      |         ^~~~~~~~
+cc1: some warnings being treated as errors
+ninja: build stopped: subcommand failed.

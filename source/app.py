@@ -11,7 +11,8 @@ client_id = f'Raspi 4 MQTT Broker - {random.randint(0,1000)}'
 # Topics
 status_t = "fan/status"
 output_t = "fan/output"
-temp_t = "sensors/temp"
+temp_t = "sensors/dht11/temp"
+humidity_t = "sensors/dht11/humidity"
 
 # Web UI
 app = Flask(__name__, static_folder="static", template_folder="templates")
@@ -21,26 +22,33 @@ fan_status = "ON"
 current_fan_output = 1200
 set_fan_output = 1500
 current_temp = 35.5
+current_humidity = 45.0
 
 def on_connect(client, userdata, flags, rc, properties=None):
     print("CONNACK received with code %s." % rc)
     client.subscribe(temp_t, qos=1)
+    client.subscribe(humidity_t, qos=1)
 
 def on_publish(client, userdata, mid, properties=None):
     print("Published: MID " + str(mid))
     
 def on_message(client, userdata, msg):
-    global current_temp
+    global current_temp, current_humidity
     try:
         if not msg.payload:
-            print(f"Warning: Received empty message on topic {msg.temp_t}")
+            print(f"Warning: Received empty message on topic {msg.topic}")
             return
-        
-        current_temp = int(msg.payload.decode())
-        print(f"Received `{msg.payload.decode()}` from `{msg.temp_t}` topic")
-    except Exception as err:
-        print(f"Error processessing temp_t message: {err}")
-    
+        if msg.topic == temp_t:
+            current_temp = float(msg.payload.decode())
+            print(f"Updated current_temp: {current_temp}°C")
+        elif msg.topic == humidity_t:
+            current_humidity = float(msg.payload.decode())
+            print(f"Updated current_humidity: {current_humidity}°C")
+        else:
+            print(f"Received message on unhandled topic: {msg.topic}")
+    except Exception as err: 
+        print(f"Error: Could not convert payload topic {msg.topic}")
+
 client = paho.Client(client_id=client_id, userdata=None, protocol=paho.MQTTv5)
 client.on_connect = on_connect
 client.on_publish = on_publish
@@ -56,13 +64,14 @@ def home():
 @app.route("/data")
 def get_data():
     # Debug: Print data before returning JSON
-    print(f"Sending Data: Fan Status: {fan_status}, Current Fan Output: {current_fan_output}, Set Fan Output: {set_fan_output}, Temp: {current_temp}")
+    print(f"Sending Data: Fan Status: {fan_status}, Current Fan Output: {current_fan_output}, Set Fan Output: {set_fan_output}, Temp: {current_temp}, Humidity: {current_humidity}")
     
     return jsonify({
         "fan_status": str(fan_status),  
         "current_fan_output": int(current_fan_output) if isinstance(current_fan_output, (int, float)) else 0,
         "set_fan_output": int(set_fan_output) if isinstance(set_fan_output, (int, float)) else 0,
-        "current_temp": float(current_temp)  
+        "current_temp": float(current_temp),
+        "current_humidity": float(current_humidity)
     })
 
 @app.route("/fan_toggle", methods=["POST"])

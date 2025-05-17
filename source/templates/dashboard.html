@@ -62,6 +62,7 @@
                     document.getElementById("current_fan_output").innerText = data.current_fan_output;
                     document.getElementById("set_fan_output").innerText = data.set_fan_output;
                     document.getElementById("current_temp").innerText = data.current_temp;
+			document.getElementById("current_humidity").innerText = data.current_humidity;
                 });
         }
 
@@ -111,6 +112,7 @@
         <div class="data-box">Current Fan Output: <strong id="current_fan_output">Loading...</strong></div>
         <div class="data-box">Set Fan Output: <strong id="set_fan_output">Loading...</strong></div>
         <div class="data-box">Current Temp: <strong id="current_temp">Loading...</strong>°C</div>
+        <div class="data-box">Current Humidity: <strong id="current_humidity">Loading...</strong>%</div>
 
         <div class="input-area">
             <input type="number" id="fan_output_input" min="0" max="100" placeholder="0-100">

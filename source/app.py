@@ -44,7 +44,7 @@ def on_message(client, userdata, msg):
             print(f"Updated current_temp: {current_temp}°C")
         elif msg.topic == humidity_t:
             current_humidity = float(msg.payload.decode())
-            print(f"Updated current_humidity: {current_humidity}°%")
+            print(f"Updated current_humidity: {current_humidity}%")
         elif msg.topic == read_t:
             current_fan_output = int(msg.payload.decode())
             print(f"Updated current_fan_output: {current_fan_output}")

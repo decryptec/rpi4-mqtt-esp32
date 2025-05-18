@@ -11,6 +11,7 @@ client_id = f'Raspi 4 MQTT Broker - {random.randint(0,1000)}'
 # Topics
 status_t = "fan/status"
 output_t = "fan/output"
+read_t = "fan/read"
 temp_t = "sensors/dht11/temp"
 humidity_t = "sensors/dht11/humidity"
 
@@ -27,12 +28,13 @@ def on_connect(client, userdata, flags, rc, properties=None):
     print("CONNACK received with code %s." % rc)
     client.subscribe(temp_t, qos=1)
     client.subscribe(humidity_t, qos=1)
+    client.subscribe(read_t, qos=1)
 
 def on_publish(client, userdata, mid, properties=None):
     print("Published: MID " + str(mid))
     
 def on_message(client, userdata, msg):
-    global current_temp, current_humidity
+    global current_temp, current_humidity, current_fan_output
     try:
         if not msg.payload:
             print(f"Warning: Received empty message on topic {msg.topic}")
@@ -42,7 +44,10 @@ def on_message(client, userdata, msg):
             print(f"Updated current_temp: {current_temp}°C")
         elif msg.topic == humidity_t:
             current_humidity = float(msg.payload.decode())
-            print(f"Updated current_humidity: {current_humidity}°C")
+            print(f"Updated current_humidity: {current_humidity}°%")
+        elif msg.topic == read_t:
+            current_fan_output = int(msg.payload.decode())
+            print(f"Updated current_fan_output: {current_fan_output}")
         else:
             print(f"Received message on unhandled topic: {msg.topic}")
     except Exception as err: 
@@ -95,10 +100,10 @@ def set_fan_output():
     global current_fan_output
     data = request.json  
 
-    if "rpm" in data and isinstance(data["rpm"], int):
-        current_fan_output = max(0, min(data["rpm"], 100))  
+    if "duty_c" in data and isinstance(data["duty_c"], int):
+        current_fan_output = max(0, min(data["duty_c"], 100))  
 
-        result = client.publish(output_t, current_fan_output, qos=1)
+        result = client.publish(output_t, str(current_fan_output), qos=1)
         if result[0] == paho.MQTT_ERR_SUCCESS:
             print(f"Sent `{current_fan_output}` to topic `{output_t}`")
         else:

@@ -7,7 +7,7 @@
 #define WIFI_MAX_RETRY 10
 
 // MQTT Configuration
-#define MQTT_BROKER_URI	"mqtt://192.168.50.181:1883"
+#define MQTT_BROKER_URI	"mqtt://<IP_ADDR>:<PORT>" // Replace this. With broker IP and Mosquitto port
 #define MQTT_CLIENT_ID	"esp32-test-client"
 
 // Subscribe topics

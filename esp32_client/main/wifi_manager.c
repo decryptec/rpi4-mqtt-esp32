@@ -90,7 +90,5 @@ esp_err_t wifi_manager_init_sta(void)
         ESP_LOGE(TAG, "UNEXPECTED EVENT");
         result = ESP_FAIL;
     }
-    // Event handlers are left registered to handle future disconnects/reconnects.
-    // vEventGroupDelete(s_wifi_event_group); // Only delete if group is not needed anymore
     return result;
 }

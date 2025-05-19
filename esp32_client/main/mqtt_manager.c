@@ -1,61 +1,36 @@
-// File: mqtt_manager.c
 #include "mqtt_manager.h"
 #include "app_config.h"
+#include "fan_ctrl.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "esp_system.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "mqtt_client.h"
-#include <inttypes.h> // For PRId32
+#include <inttypes.h>
 
 static const char *TAG = "MQTT_MANAGER";
 static esp_mqtt_client_handle_t client = NULL;
+static int last_on_duty_percentage = 80; // Default "ON" duty
+static bool state = 0;
 
-static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
-{
+static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event) {
     esp_mqtt_client_handle_t client_local = event->client;
     int msg_id;
 
     switch (event->event_id) {
         case MQTT_EVENT_CONNECTED:
             ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
-
             msg_id = esp_mqtt_client_subscribe(client_local, status_t, 0);
-            if (msg_id < 0) {
-                ESP_LOGE(TAG, "Subscription to %s failed", status_t);
-            } else {
-                ESP_LOGI(TAG, "Sent subscribe successful for %s, msg_id=%d", status_t, msg_id);
-            }
-
+            ESP_LOGI(TAG, "Subscribed to %s, msg_id=%d", status_t, msg_id);
             msg_id = esp_mqtt_client_subscribe(client_local, output_t, 0);
-            if (msg_id < 0) {
-                ESP_LOGE(TAG, "Subscription to %s failed", output_t);
-            } else {
-                ESP_LOGI(TAG, "Sent subscribe successful for %s, msg_id=%d", output_t, msg_id);
-            }
+            ESP_LOGI(TAG, "Subscribed to %s, msg_id=%d", output_t, msg_id);
 
-            msg_id = esp_mqtt_client_publish(client_local, read_t, "0", 1, 0, 0);
-            if (msg_id < 0) {
-                ESP_LOGE(TAG, "Initial publish to %s failed", read_t);
-            } else {
-                ESP_LOGI(TAG, "Sent initial publish successful to %s, msg_id=%d", read_t, msg_id);
-            }
-
-            msg_id = esp_mqtt_client_publish(client_local, temp_t, "0", 1, 0, 0);
-            if (msg_id < 0) {
-                ESP_LOGE(TAG, "Initial publish to %s failed", temp_t);
-            } else {
-                ESP_LOGI(TAG, "Sent initial publish successful to %s, msg_id=%d", temp_t, msg_id);
-            }
-
-            msg_id = esp_mqtt_client_publish(client_local, humidity_t, "0", 1, 0, 0);
-            if (msg_id < 0) {
-                ESP_LOGE(TAG, "Initial publish to %s failed", humidity_t);
-            } else {
-                ESP_LOGI(TAG, "Sent initial publish successful to %s, msg_id=%d", humidity_t, msg_id);
-            }
+            mqtt_manager_publish(read_t, "0", 0, 0, 0);
+            mqtt_manager_publish(temp_t, "0", 0, 0, 0);
+            mqtt_manager_publish(humidity_t, "0", 0, 0, 0);
             break;
 
         case MQTT_EVENT_DISCONNECTED:
@@ -64,7 +39,6 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
 
         case MQTT_EVENT_SUBSCRIBED:
             ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
-            ESP_LOGI(TAG, "Successfully subscribed to topic associated with msg_id %d", event->msg_id);
             break;
 
         case MQTT_EVENT_UNSUBSCRIBED:
@@ -72,61 +46,79 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             break;
 
         case MQTT_EVENT_PUBLISHED:
-            ESP_LOGI(TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
+            ESP_LOGD(TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
             break;
 
-        case MQTT_EVENT_DATA:
-            ESP_LOGI(TAG, "MQTT_EVENT_DATA");
-            ESP_LOGI(TAG, "TOPIC=%.*s", event->topic_len, event->topic);
-            ESP_LOGI(TAG, "DATA=%.*s", event->data_len, event->data);
+        case MQTT_EVENT_DATA: {
+            ESP_LOGI(TAG, "MQTT_EVENT_DATA: TOPIC=%.*s, DATA=%.*s",
+                     event->topic_len, event->topic, event->data_len, event->data);
 
-            if (event->topic_len == strlen(status_t) &&
-                strncmp(event->topic, status_t, event->topic_len) == 0) {
-                ESP_LOGI(TAG, "Received message on %s topic", status_t);
-                // Add specific processing for status_t here
-            } else if (event->topic_len == strlen(output_t) &&
-                       strncmp(event->topic, output_t, event->topic_len) == 0) {
-                ESP_LOGI(TAG, "Received message on %s topic", output_t);
-                // Add specific processing for output_t here
+            char topic_str[event->topic_len + 1];
+            strncpy(topic_str, event->topic, event->topic_len);
+            topic_str[event->topic_len] = '\0';
+
+            char data_str[event->data_len + 1];
+            strncpy(data_str, event->data, event->data_len);
+            data_str[event->data_len] = '\0';
+
+            if (strcmp(topic_str, status_t) == 0) {
+                ESP_LOGI(TAG, "Processing %s: %s", status_t, data_str);
+                if (strcmp(data_str, "ON") == 0) {
+                    fan_turn_on_fade(last_on_duty_percentage);
+                    char current_duty_str[5];
+                    snprintf(current_duty_str, sizeof(current_duty_str), "%d", last_on_duty_percentage);
+		    state = true;
+                    mqtt_manager_publish(read_t, current_duty_str, 0, 0, 0);
+                } else if (strcmp(data_str, "OFF") == 0) {
+                    fan_turn_off_fade();
+		    state = false;
+                } else {
+                    ESP_LOGW(TAG, "Invalid payload for %s: %s", status_t, data_str);
+                }
+            } else if (strcmp(topic_str, output_t) == 0) {
+                ESP_LOGI(TAG, "Processing %s: %s", output_t, data_str);
+                int duty_percentage = atoi(data_str);
+                if (duty_percentage >= 0 && duty_percentage <= 100) {
+                    last_on_duty_percentage = duty_percentage;
+		    if (state){
+                    fan_set_duty_fade(duty_percentage);
+		    }
+                    mqtt_manager_publish(read_t, data_str, 0, 0, 0);
+                } else {
+                    ESP_LOGW(TAG, "Invalid duty for %s: %s", output_t, data_str);
+                }
             } else {
-                ESP_LOGW(TAG, "Received message on an unhandled subscribed topic: %.*s", event->topic_len, event->topic);
+                ESP_LOGW(TAG, "Unhandled topic: %s", topic_str);
             }
             break;
+        }
 
         case MQTT_EVENT_ERROR:
-            ESP_LOGI(TAG, "MQTT_EVENT_ERROR");
+            ESP_LOGE(TAG, "MQTT_EVENT_ERROR");
             if (event->error_handle) {
-                ESP_LOGE(TAG, "Last error code: 0x%x", event->error_handle->esp_tls_last_esp_err);
-                ESP_LOGE(TAG, "Last stack error: 0x%x", event->error_handle->esp_tls_stack_err);
-                #if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 4, 0)
-                 ESP_LOGE(TAG, "Last captured errno: %d (%s)", event->error_handle->esp_transport_sock_errno,
-                                                         strerror(event->error_handle->esp_transport_sock_errno));
-                #endif
+                ESP_LOGE(TAG, "Last error: 0x%x, type: %d",
+                         event->error_handle->esp_tls_last_esp_err, event->error_handle->error_type);
             }
             break;
         default:
-            ESP_LOGI(TAG, "Other event id:%d", (int)event->event_id);
+            ESP_LOGI(TAG, "Other MQTT event: %d", (int)event->event_id);
             break;
     }
     return ESP_OK;
 }
 
-static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data) {
-    ESP_LOGD(TAG, "Event dispatched: base=%s, event_id=%" PRId32, base, event_id);
+static void mqtt_event_handler_wrapper(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data) {
+    ESP_LOGD(TAG, "Event dispatched: base=%s, id=%" PRId32, base, event_id);
     mqtt_event_handler_cb(event_data);
 }
 
-void mqtt_manager_start(void)
-{
-    esp_mqtt_client_config_t mqtt_cfg = {
-        .broker.address.uri = MQTT_BROKER_URI,
-    };
+void mqtt_manager_start(void) {
+    esp_mqtt_client_config_t mqtt_cfg = { .broker.address.uri = MQTT_BROKER_URI };
     if (strlen(MQTT_CLIENT_ID) > 0) {
         mqtt_cfg.credentials.client_id = MQTT_CLIENT_ID;
     }
-
     client = esp_mqtt_client_init(&mqtt_cfg);
-    esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
+    esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler_wrapper, NULL);
     esp_mqtt_client_start(client);
     ESP_LOGI(TAG, "MQTT client started.");
 }
@@ -136,11 +128,14 @@ int mqtt_manager_publish(const char *topic, const char *data, int len, int qos, 
         ESP_LOGE(TAG, "MQTT client not initialized for publish.");
         return -1;
     }
-    int msg_id = esp_mqtt_client_publish(client, topic, data, len, qos, retain);
+    int actual_len = (len == 0 && data != NULL) ? strlen(data) : len;
+    int msg_id = esp_mqtt_client_publish(client, topic, data, actual_len, qos, retain);
+
     if (msg_id < 0) {
-        ESP_LOGE(TAG, "Failed to publish message to topic %s, error code: %d", topic, msg_id);
+        ESP_LOGE(TAG, "Publish failed: topic %s, len %d, err %d", topic, actual_len, msg_id);
     } else {
-        ESP_LOGI(TAG, "Publish sent to topic %s, msg_id=%d", topic, msg_id);
+        ESP_LOGD(TAG, "Publish sent: topic %s, len %d, msg_id %d: %s",
+                 topic, actual_len, msg_id, data ? data : "NULL");
     }
     return msg_id;
 }

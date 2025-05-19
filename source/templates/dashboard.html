@@ -1,126 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>IoT Fan Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            min-width: 300px;
-        }
-        .data-box {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        .input-area {
-            margin-top: 20px;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-            width: 80px;
-            text-align: center;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .warning {
-            color: red;
-            font-size: 14px;
-            display: none;
-        }
-    </style>
-    <script>
-        function updateData() {
-            fetch('/data')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("fan_status").innerText = data.fan_status;
-                    document.getElementById("current_fan_output").innerText = data.current_fan_output;
-                    document.getElementById("set_fan_output").innerText = data.set_fan_output;
-                    document.getElementById("current_temp").innerText = data.current_temp;
-                });
-        }
+	<head>
+		<title>IoT Fan Dashboard</title>
+		<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	text-align: center;
+	padding: 20px;
+}
+	h1 {
+		color: #333;
+	}
+	.container {
+		background: white;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+		display: inline-block;
+		min-width: 300px;
+	}
+	.data-box {
+		font-size: 20px;
+		margin: 10px 0;
+	}
+	.input-area {
+		margin-top: 20px;
+	}
+	input {
+		padding: 10px;
+		font-size: 16px;
+		width: 80px;
+		text-align: center;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+	}
+	button {
+		padding: 10px 20px;
+		font-size: 16px;
+		background-color: #007bff;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	button:hover {
+		background-color: #0056b3;
+	}
+	.warning {
+		color: red;
+		font-size: 14px;
+		display: none;
+	}
+		</style>
+		<script>
+			function updateData() {
+				fetch('/data')
+					.then(response => response.json())
+					.then(data => {
+						document.getElementById("fan_status").innerText = data.fan_status;
+						document.getElementById("current_fan_output").innerText = data.current_fan_output;
+						document.getElementById("current_temp").innerText = data.current_temp;
+						document.getElementById("current_humidity").innerText = data.current_humidity;
+					});
+			}
 
-        function toggleFan() {
-            fetch('/fan_toggle', { method: "POST" })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("fan_status").innerText = data.fan_status;
-                });
-        }
+			function toggleFan() {
+				fetch('/fan_toggle', { method: "POST" })
+					.then(response => response.json())
+					.then(data => {
+						document.getElementById("fan_status").innerText = data.fan_status;
+					});
+			}
 
 
-        function setFanOutput() {
-            let inputField = document.getElementById("fan_output_input");
-            let newOutput = parseInt(inputField.value);
+			function setFanOutput() {
+				let inputField = document.getElementById("fan_output_input");
+				let newOutput = parseInt(inputField.value);
 
-            if (newOutput < 0) {
-                newOutput = 0;
-                showWarning("Value too low! Setting to 0.");
-            } else if (newOutput > 100) {
-                newOutput = 100;
-                showWarning("Value too high! Setting to 100.");
-            }
+				if (newOutput < 0) {
+					newOutput = 0;
+					showWarning("Value too low! Setting to 0.");
+				} else if (newOutput > 100) {
+					newOutput = 100;
+					showWarning("Value too high! Setting to 100.");
+				}
 
-            fetch('/set_fan_output', {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({"rpm": newOutput})
-            }).then(response => response.json())
-              .then(data => document.getElementById("set_fan_output").innerText = data.set_fan_output);
-        }
+				fetch('/set_fan_output', {
+					method: "POST",
+					headers: {"Content-Type": "application/json"},
+					body: JSON.stringify({"duty_c": newOutput})
+				}).then(response => response.json())
+					.then(data => document.getElementById("set_fan_output").innerText = data.set_fan_output);
+			}
 
-        function showWarning(message) {
-            let warning = document.getElementById("warning_message");
-            warning.innerText = message;
-            warning.style.display = "block";
-            setTimeout(() => { warning.style.display = "none"; }, 3000);
-        }
+			function showWarning(message) {
+				let warning = document.getElementById("warning_message");
+				warning.innerText = message;
+				warning.style.display = "block";
+				setTimeout(() => { warning.style.display = "none"; }, 3000);
+			}
 
-        setInterval(updateData, 2000);
-    </script>
-</head>
-<body>
-    <h1>IoT Fan Dashboard</h1>
-    <div class="container">
-        <div class="data-box">Fan Status: <strong id="fan_status">Loading...</strong></div>
-        <div class="data-box">Current Fan Output: <strong id="current_fan_output">Loading...</strong></div>
-        <div class="data-box">Set Fan Output: <strong id="set_fan_output">Loading...</strong></div>
-        <div class="data-box">Current Temp: <strong id="current_temp">Loading...</strong>°C</div>
+			setInterval(updateData, 2000);
+		</script>
+	</head>
+	<body>
+		<h1>IoT Fan Dashboard</h1>
+		<div class="container">
+			<div class="data-box">Fan Status: <strong id="fan_status">Loading...</strong></div>
+			<div class="data-box">Current Fan Output: <strong id="current_fan_output">Loading...</strong>%</div>
+			<div class="data-box">Current Temp: <strong id="current_temp">Loading...</strong>°C</div>
+			<div class="data-box">Current Humidity: <strong id="current_humidity">Loading...</strong>%</div>
 
-        <div class="input-area">
-            <input type="number" id="fan_output_input" min="0" max="100" placeholder="0-100">
-            <button onclick="setFanOutput()">Set Fan Output</button>
-        </div>
+			<div class="input-area">
+				<input type="number" id="fan_output_input" min="0" max="100" placeholder="0-100">
+				<button onclick="setFanOutput()">Set Fan Output</button>
+			</div>
 
-        <div class="input-area">
-            <button onclick="toggleFan()">Toggle Fan</button>
-        </div>
-        <p id="warning_message" class="warning"></p>
-    </div>
-</body>
+			<div class="input-area">
+				<button onclick="toggleFan()">Toggle Fan</button>
+			</div>
+			<p id="warning_message" class="warning"></p>
+		</div>
+	</body>
 </html>

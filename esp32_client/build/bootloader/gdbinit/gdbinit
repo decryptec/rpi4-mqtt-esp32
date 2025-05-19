@@ -1,0 +1,2 @@
+source /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/build/bootloader/gdbinit/symbols
+source /home/sidebyte/esp/test/rpi4-mqtt-esp32/esp32_client/build/bootloader/gdbinit/connect

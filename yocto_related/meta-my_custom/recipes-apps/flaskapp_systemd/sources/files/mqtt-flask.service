@@ -1,0 +1,14 @@
+[Unit]
+Description=MQTT Flask Service
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/usr/lib/mqtt-flask
+ExecStart=/usr/bin/flask run --host=0.0.0.0
+Environment="FLASK_APP=app.py"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

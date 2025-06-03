@@ -23,6 +23,8 @@ This project demonstrates controlling a fan with an ESP32 using the ESP-IDF fram
 *   ESP32 development board
 *   Fan hardware
 *   Yocto build environment (Poky) properly set up.
+          DISTRO_CODENAME="walnascar"
+          DISTRO_VERSION="5.2"
 *   ESP-IDF environment properly set up (including toolchain)
 *   Python 3 + Flask, Paho MQTT
 

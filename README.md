@@ -21,7 +21,8 @@ This project demonstrates controlling a fan with an ESP32 using the ESP-IDF fram
 
 *   Raspberry Pi (or similar)
 *   ESP32 development board
-*   Fan hardware
+*   DC motor
+*   DHT11 (Temp and Humidity Sensor)
 *   Yocto build environment (Poky) properly set up.
           DISTRO_CODENAME="walnascar"
           DISTRO_VERSION="5.2"
